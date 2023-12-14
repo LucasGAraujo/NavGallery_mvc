@@ -1,0 +1,72 @@
+﻿@model NavGallery.Models.Car
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Deletar</h1>
+
+<h3>Tem certeza?</h3>
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+        <dt class = "col-sm-2">
+            Ano do car
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnoCar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sobre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sobre)
+        </dd>
+        <dt class = "col-sm-2">
+            Foto
+        </dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.FotoCar))
+            {
+                @if (Model.FotoCar.StartsWith("/") || Model.FotoCar.StartsWith("http"))
+                {
+                    <img src="@Model.FotoCar" alt="Car Image" style="max-width: 70px; max-height: 70px;" />
+                }
+                else
+                {
+                    <img src="~/imagens/@Model.FotoCar" alt="Car Image" style="max-width: 70px; max-height: 70px;" />
+                }
+            }
+            else
+            {
+                <span>No Image</span>
+            }
+        </dd>
+       
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Marca.Id)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar a Gallery</a>
+    </form>
+</div>
+@section Fotterok {
+    <div class="container">
+        &copy; 2023 - NavGallery - Page=Delete de carros <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <img src="~/imagens/3.jpg" style="max-width: 60px; max-height: 60px;" />
+    </div
+}

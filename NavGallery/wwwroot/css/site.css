@@ -1,0 +1,57 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+
+}
+
+body {
+    margin-bottom: 100px;
+    height: calc(100vh + 50px) !important;
+}
+.btn-edit, .btn-details, .btn-delete {
+    display: inline-block;
+    padding: 8px 15px; 
+    margin-right: 5px;
+    text-decoration: none;
+    color: #ffffff; 
+    background-color:black;
+    border: none;
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+    .btn-edit:hover {
+        background-color: #4CAF50; 
+        color: #ffffff; 
+    }
+
+    .btn-details:hover {
+        background-color: #ffa500;
+        color: #ffffff; 
+    }
+
+    .btn-delete:hover {
+        background-color: #ff4500; 
+        color: #ffffff; 
+    }
+.containers {
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+

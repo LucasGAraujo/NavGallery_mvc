@@ -1,0 +1,75 @@
+﻿@model IEnumerable<NavGallery.Models.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Gallery</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                Ano do Car
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sobre)
+            </th>
+            <th>
+               Foto
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoCar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sobre)
+            </td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.FotoCar)) {
+                 @if (item.FotoCar.StartsWith("/") || item.FotoCar.StartsWith("http")) {
+            <img src="@item.FotoCar" alt="Car Image" style="max-width: 90px; max-height: 90px;" />
+        } else {
+            <img src="~/imagens/@item.FotoCar" alt="Car Image" style="max-width: 90px; max-height: 90px;" />
+        }
+                }
+     else {
+         <span>No Image</span>
+     }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca.Name)
+            </td>
+                <td>
+                    <a class="btn-edit" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
+                    <a class="btn-details" asp-action="Details" asp-route-id="@item.Id">Detalhes</a> 
+                    <a class="btn-delete" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+@section Fotterok {
+    <div class="container">
+        &copy; 2023 - NavGallery - Page=Index de carro<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <img src="~/imagens/4.jpg" style="max-width: 60px; max-height: 60px;" />
+    </div
+}

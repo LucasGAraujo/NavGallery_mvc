@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NavGallery.Models.Marca>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h2>Lista de Marca</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-success">Criar nova</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalhe</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Fotterok {
+    <div class="container">
+        &copy; 2023 - NavGallery - Page=Index de marcas <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <img src="~/imagens/4.jpg" style="max-width: 60px; max-height: 60px;" />
+    </div
+}

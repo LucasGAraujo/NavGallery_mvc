@@ -1,0 +1,40 @@
+﻿@model NavGallery.Models.Marca
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <h2>Criar nova marca</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Nome da marca:</label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter Marca Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Criar Marca</button>
+                    <a asp-action="Index" class="btn btn-secondary">Voltar a galeria</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Fotterok {
+    <div class="container">
+        &copy; 2023 - NavGallery - Page=Create da Marca <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <img src="~/imagens/1.jpg" style="max-width: 60px; max-height: 60px;" />
+    </div>
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
