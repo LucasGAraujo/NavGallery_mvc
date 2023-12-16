@@ -13,7 +13,39 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NavGallery</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Nav Gallery</a>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <span class="main-item" onclick="toggleSubmenu('carSubMenu')">Selecione (cars)</span>
+                            <div id="carSubMenu" class="submenu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Create">Create Car</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Listar todos</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="main-item" onclick="toggleSubmenu('brandSubMenu')">Selecione (Marcas)</span>
+                            <div id="brandSubMenu" class="submenu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Marcas" asp-action="Create">Create marcas</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Marcas" asp-action="Index">Listar todos</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <script>
+                    function toggleSubmenu(submenuId) {
+                        var submenu = document.getElementById(submenuId);
+                        if (submenu.style.display === "block") {
+                            submenu.style.display = "none";
+                        } else {
+                            submenu.style.display = "block";
+                        }
+                    }
+                </script>
+
+               
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

@@ -54,4 +54,37 @@ body {
     color: white;
     text-align: center;
 }
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
 
+.nav-item {
+    position: relative;
+    margin-right: 20px;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+}.nav-item:hover .submenu {
+    display: block;
+}
+
+.submenu a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 5px;
+}
+.main-item:hover {
+    cursor: pointer;
+    color: blue;
+}
